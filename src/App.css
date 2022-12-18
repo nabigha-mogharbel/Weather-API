@@ -1,25 +1,83 @@
-.app {
-  height: 100vh;
-  width: 100vw;
-  transition: background-color 1s ease-in;
+:root {
+  --header-overcast-cloud: rgb(117,158,218);
+  --main-overcast-cloud: rgb(156,206,244);
+  --btn: rgb(88,121,199);
+  --blue-font:rgb(42,60,133);
 }
+body{
+  margin: 0;
+  background-color: var(--main-overcast-cloud);
 
-.app__header,
-.app__main {
+}
+.app {
+  height: 100%;
   width: 100%;
+  font-family: 'Raleway';
+}
+header{
+  padding:20px 20px;
+  background-color: var(--header-overcast-cloud);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 10px;
+}
+main{
+  background-color: var(--main-overcast-cloud);
+  color: var(--blue-font);
+  margin-top: 40px;
+}
+.title{
+  margin: 0;
+}
+#current-weather{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  font-family: "Raleway", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  row-gap: 10px;
+  margin-bottom: 40px;
+
+}
+.big-title{
+  font-size: x-large;
+}
+.white-title{
+  color: white;
+  font-weight: 700;
+  font-size: larger;
+  margin-bottom: 5px;
 }
 
-/*  Search bar */
+#btn{
+  background-color: var(--btn);
+  padding: 10px;
+  border: 0;
+  font-size: larger;
+  font-family: 'Raleway';
+  color:rgb(42,60,133);
+}
+.input{
+  background-color: transparent;
+  border: 0;
+  font-size: larger;
+  font-family: 'Raleway';
+  color:white;
+}
+.input:active{
+  border-bottom: 1px solid white;
+}
 
-/* Current weather */
+#all-day-weather {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 15px;
+}
+.three-h-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-div {
-  border: 5px solid red;
 }
