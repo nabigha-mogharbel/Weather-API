@@ -1,83 +1,109 @@
 :root {
-  --header-overcast-cloud: rgb(117,158,218);
-  --main-overcast-cloud: rgb(156,206,244);
-  --btn: rgb(88,121,199);
-  --blue-font:rgb(42,60,133);
+  --header-overcast-cloud: rgb(117, 158, 218);
+  --main-overcast-cloud: rgb(156, 206, 244);
+  --btn: rgb(88, 121, 199);
+  --blue-font: rgb(3, 3, 72);
 }
-body{
+
+body {
   margin: 0;
   background-color: var(--main-overcast-cloud);
-
 }
+
 .app {
   height: 100%;
   width: 100%;
   font-family: 'Raleway';
 }
-header{
-  padding:20px 20px;
+
+header {
+  padding: 20px 20px;
   background-color: var(--header-overcast-cloud);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  column-gap: 10px;
+  column-gap: 20px;
 }
-main{
+
+main {
   background-color: var(--main-overcast-cloud);
   color: var(--blue-font);
-  margin-top: 40px;
+  margin-top: 80px;
 }
-.title{
+
+.title {
   margin: 0;
 }
-#current-weather{
+
+#current-weather {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 30px;
   margin-bottom: 40px;
 
 }
-.big-title{
+
+.big-title {
   font-size: x-large;
 }
-.white-title{
+
+.medium-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+
+.white-title {
   color: white;
   font-weight: 700;
   font-size: larger;
   margin-bottom: 5px;
 }
 
-#btn{
+#btn {
   background-color: var(--btn);
   padding: 10px;
   border: 0;
   font-size: larger;
   font-family: 'Raleway';
-  color:rgb(42,60,133);
+  color: var(--blue-font);
+  font-weight: 500;
 }
-.input{
+
+.input {
   background-color: transparent;
   border: 0;
   font-size: larger;
   font-family: 'Raleway';
-  color:white;
+  color: white;
 }
-.input:active{
-  border-bottom: 1px solid white;
+
+.input:focus {
+  border-bottom: 1px solid var(--blue-font);
+  outline: transparent;
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: white
 }
 
 #all-day-weather {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  column-gap: 15px;
+  column-gap: 50px;
 }
-.three-h-container{
+
+.three-h-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 15px;
+  font-size: large;
 
 }
