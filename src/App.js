@@ -10,6 +10,7 @@ import snow from "./img/weather-icons/snow.svg";
 import storm from "./img/weather-icons/storm.svg";
 import unknown from "./img/weather-icons/unknown.svg";
 import "./App.css";
+import NavBar from "./components/NavBar";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,25 +18,10 @@ class App extends Component {
       city: "tripoli",
     };
   }
-
-  handleInputChange = (e) => {
-    this.setState({ city: e.target.value });
-  };
   render() {
     return (
       <div className="app">
-        <header id="header">
-          <input
-            name="city"
-            type="text"
-            className="input"
-            onChange={this.handleInputChange}
-            placeholder="Type in a city name"
-          />
-          <button onClick={() => console.log(this.state.city)}  id="btn">
-            Find Weather
-          </button>
-        </header>
+        <NavBar/>
         <main>
         <div id="current-weather">
           <img src={mostlycloudy} alt="mostlycloud" width={'300px'}/>
