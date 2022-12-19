@@ -1,32 +1,33 @@
 import React, { Component } from "react";
-import mostlycloudy from "./img/weather-icons/mostlycloudy.svg";
-import clear from "./img/weather-icons/clear.svg";
-import cloudy from "./img/weather-icons/cloudy.svg";
-import drizzle from "./img/weather-icons/drizzle.svg";
-import fog from "./img/weather-icons/fog.svg";
-import partlycloudy from "./img/weather-icons/partlycloudy.svg";
-import rain from "./img/weather-icons/rain.svg";
-import snow from "./img/weather-icons/snow.svg";
-import storm from "./img/weather-icons/storm.svg";
-import unknown from "./img/weather-icons/unknown.svg";
 import AllDayWeather from "./components/AllDayWeather";
 import "./App.css";
 import MainWeather from "./components/MainWeather";
 import NavBar from "./components/NavBar";
+import FakeWeatherData from "./data/FakeWeather.json";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "tripoli",
+      data: FakeWeatherData,
     };
   }
+componentDidMount(){
+  console.log(this.state.data.list[4])
+}
   render() {
     return (
       <div className="app">
-        <NavBar/>
+        <NavBar />
         <main>
-          <MainWeather />
-          <AllDayWeather />
+          <MainWeather
+            src={this.state.data.list[4].weather[0].main.toLowerCase()}
+            desc={this.state.data.list[4].weather[0].description}
+            minT={this.state.data.list[4].main.temp_min}
+            maxT={this.state.data.list[4].main.temp_min}
+            humidity={this.state.data.list[4].main.humidity}
+            pressure={this.state.data.list[4].main.pressure}
+          />
+          <AllDayWeather dayW={this.state.data.list.slice(5, 12)} />
         </main>
       </div>
     );
