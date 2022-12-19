@@ -37,7 +37,6 @@ main{
   align-items: center;
   row-gap: 10px;
   margin-bottom: 40px;
-
 }
 .big-title{
   font-size: x-large;
@@ -79,5 +78,4 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
