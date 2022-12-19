@@ -2,7 +2,7 @@
   --header-overcast-cloud: rgb(117,158,218);
   --main-overcast-cloud: rgb(156,206,244);
   --btn: rgb(88,121,199);
-  --blue-font:rgb(42,60,133);
+  --blue-font:rgb(3, 3, 72);
 }
 body{
   margin: 0;
@@ -20,7 +20,7 @@ header{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  column-gap: 10px;
+  column-gap: 20px;
 }
 main{
   background-color: var(--main-overcast-cloud);
@@ -35,17 +35,25 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 5px;
   margin-bottom: 40px;
 }
 .big-title{
   font-size: x-large;
+  margin-top: 20px;
 }
 .white-title{
   color: white;
   font-weight: 700;
   font-size: larger;
   margin-bottom: 5px;
+}
+.medium-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 10px;
+  margin-top: 20px;
 }
 
 #btn{
@@ -54,7 +62,8 @@ main{
   border: 0;
   font-size: larger;
   font-family: 'Raleway';
-  color:rgb(42,60,133);
+  color:var(--blue-font);
+  font-weight: 500;
 }
 .input{
   background-color: transparent;
@@ -63,8 +72,14 @@ main{
   font-family: 'Raleway';
   color:white;
 }
-.input:active{
-  border-bottom: 1px solid white;
+.input:focus {
+  border-bottom: 1px solid var(--blue-font);
+  outline: transparent;
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: white
 }
 
 #all-day-weather {
@@ -78,4 +93,6 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 15px;
+  font-size: large;
 }
