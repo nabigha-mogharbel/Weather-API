@@ -17,12 +17,9 @@ class App extends Component {
       city: "tripoli",
     };
   }
-  renderState() {
-    let city=this.state.city;
-    console.log(city);
-  }
-  handleInputChange = (value) => {
-    this.setState({ city: value });
+
+  handleInputChange = (e) => {
+    this.setState({ city: e.target.value });
   };
   render() {
     return (
@@ -35,7 +32,7 @@ class App extends Component {
             onChange={this.handleInputChange}
             placeholder="Type in a city name"
           />
-          <button onClick={this.renderState}  id="btn">
+          <button onClick={() => console.log(this.state.city)}  id="btn">
             Find Weather
           </button>
         </header>
