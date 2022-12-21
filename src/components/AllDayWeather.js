@@ -8,6 +8,7 @@ class AllDayWeather extends Component {
     };
   }
   render() {
+    console.log('3-div')
     return (
       <div className="AllDayWeather" id="all-day-weather">
         {this.state.weatherList.map((e) => (

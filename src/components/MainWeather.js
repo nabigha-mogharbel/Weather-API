@@ -33,7 +33,7 @@ class MainWeather extends Component {
         <img src={`${this.state.icons[this.props.src]}`} alt={`${this.props.desc}`} width={"300px"} />
         <p className="title white-title">{this.props.desc}</p>
         <p className="title big-title">
-          <b>Temperature</b> {Math.round(this.props.minT- 273) } &deg;C to {Math.round(this.props.maxT - 273)} &deg;C
+          <b>Temperature</b> {Math.round(this.props.minT) } &deg;C to {Math.round(this.props.maxT)} &deg;C
         </p>
         <p className="title medium-title">
           <b>Humidity</b> {this.props.humidity} % <b>Pressure</b> {this.props.pressure}

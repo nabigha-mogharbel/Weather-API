@@ -65,20 +65,20 @@ main{
   color:var(--blue-font);
   font-weight: 500;
 }
-.input{
+input{
   background-color: transparent;
   border: 0;
   font-size: larger;
   font-family: 'Raleway';
   color:white;
 }
-.input:focus {
+input:focus {
   border-bottom: 1px solid var(--blue-font);
   outline: transparent;
   background-color: transparent;
 }
 
-.input::placeholder {
+input::placeholder {
   color: white
 }
 
