@@ -9,30 +9,38 @@ import rain from "../img/weather-icons/rain.svg";
 import snow from "../img/weather-icons/snow.svg";
 import storm from "../img/weather-icons/storm.svg";
 import unknown from "../img/weather-icons/unknown.svg";
+
 class ThreeHoursWeather extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      icons: {
-        rain: rain,
-        snow: snow,
-        storm: storm,
-        unknown: unknown,
-        fog: fog,
-        partlycloudy: partlycloudy,
-        clouds: cloudy,
-        drizzle: drizzle,
-        clear: clear,
-        mostlycloudy: mostlycloudy,
-      },
-    };
   }
+
   render() {
+    console.log(this.props.desc);
+    function renderImage(e) {
+      if (e < 300) {
+        return storm;
+      } else if (e >= 300 && e <= 499) {
+        return drizzle;
+      } else if (e >= 500 && e <= 599) {
+        return rain;
+      } else if (e >= 600 && e <= 699) {
+        return snow;
+      } else if (e >= 700 && e <= 799) {
+        return fog;
+      } else if (e === 800) {
+        return clear;
+      } else if (e === 801) {
+        return partlycloudy;
+      } else if (e >= 801 && e <= 805) {
+        return mostlycloudy;
+      }
+    }
     return (
       <div className="three-h-container">
         <p className="time">{this.props.time.slice(11, 16)}</p>
         <img
-          src={`${this.state.icons[this.props.desc]}`}
+          src={`${renderImage(this.props.desc)}`}
           alt={`${this.props.desc}`}
           width={"150px"}
         />

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import mostlycloudy from '../img/weather-icons/mostlycloudy.svg'
+import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
 import clear from "../img/weather-icons/clear.svg";
 import cloudy from "../img/weather-icons/cloudy.svg";
 import drizzle from "../img/weather-icons/drizzle.svg";
@@ -10,33 +10,44 @@ import snow from "../img/weather-icons/snow.svg";
 import storm from "../img/weather-icons/storm.svg";
 import unknown from "../img/weather-icons/unknown.svg";
 class MainWeather extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-      icons: {
-        rain: rain,
-        snow: snow,
-        storm: storm,
-        unknown: unknown,
-        fog: fog,
-        partlycloudy: partlycloudy,
-        clouds: cloudy,
-        drizzle: drizzle,
-        clear: clear,
-        mostlycloudy: mostlycloudy,
-      },
-    };
   }
   render() {
+    function renderImage(e) {
+      if (e < 300) {
+        return storm;
+      } else if (e >= 300 && e <= 499) {
+        return drizzle;
+      } else if (e >= 500 && e <= 599) {
+        return rain;
+      } else if (e >= 600 && e <= 699) {
+        return snow;
+      } else if (e >= 700 && e <= 799) {
+        return fog;
+      } else if (e === 800) {
+        return clear;
+      } else if (e === 801) {
+        return partlycloudy;
+      } else if (e >= 801 && e <= 805) {
+        return mostlycloudy;
+      }
+    }
     return (
       <div id="current-weather">
-        <img src={`${this.state.icons[this.props.src]}`} alt={`${this.props.desc}`} width={"300px"} />
+        <img
+          src={`${renderImage(this.props.src)}`}
+          alt={`${this.props.desc}`}
+          width={"300px"}
+        />
         <p className="title white-title">{this.props.desc}</p>
         <p className="title big-title">
-          <b>Temperature</b> {Math.round(this.props.minT) } &deg;C to {Math.round(this.props.maxT)} &deg;C
+          <b>Temperature</b> {Math.round(this.props.minT)} &deg;C to{" "}
+          {Math.round(this.props.maxT)} &deg;C
         </p>
         <p className="title medium-title">
-          <b>Humidity</b> {this.props.humidity} % <b>Pressure</b> {this.props.pressure}
+          <b>Humidity</b> {this.props.humidity} % <b>Pressure</b>{" "}
+          {this.props.pressure}
         </p>
       </div>
     );
