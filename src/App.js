@@ -14,19 +14,18 @@ class App extends Component {
       isError: false,
       error: {},
     };
-    this.handleclick = this.handleclick.bind(this);
+    this.getWeatherData = this.getWeatherData.bind(this);
   }
   displayError(error) {
     console.log("the error", error);
     this.setState({ error: error });
   }
-  handleclick(e) {
-    if (e) {
+  getWeatherData(city) {
+    if (city) {
       console.log("app state", this.state.city);
       let key = "70a28b505472e28686f6c86c0892daec";
-      let city = e;
       let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${key}`;
-      this.setState({ isLoading: true, isError: false });
+      this.setState({ isLoading: true, isError: false, isFetched:false });
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -39,8 +38,7 @@ class App extends Component {
             });
             console.log(data);
           } else {
-            let a = data;
-            this.setState({ data: { ...a } });
+            this.setState({ data: data });
             this.setState({
               isFetched: true,
               isError: false,
@@ -51,18 +49,18 @@ class App extends Component {
         })
         .catch((err) => {
           this.displayError(err);
-          this.setState({ isError: true });
+          this.setState({ isError: true, isLoading:false, isFetched:false });
         });
     } else {
       this.displayError({ cod: 400, message: "Please enter a city" });
-      this.setState({ isError: true });
+      this.setState({ isError: true,isLoading:false, isFetched:false });
     }
   }
 
   render() {
     return (
       <div className="app">
-        <NavBar clickEvent={this.handleclick} />
+        <NavBar clickEvent={this.getWeatherData} />
         <main>
           {this.state.isFetched && (
             <MainWeather
