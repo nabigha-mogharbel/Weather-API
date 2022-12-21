@@ -8,7 +8,7 @@ class AllDayWeather extends Component {
     };
   }
   render() {
-    console.log('3-div')
+    console.log("3-div");
     return (
       <div className="AllDayWeather" id="all-day-weather">
         {this.state.weatherList.map((e) => (
@@ -16,7 +16,7 @@ class AllDayWeather extends Component {
             key={e.dt_txt}
             time={e.dt_txt}
             temp={e.main.temp}
-            desc={e.weather[0].main.toLowerCase()}
+            desc={e.weather[0].id}
           />
         ))}
       </div>
