@@ -20,7 +20,7 @@ class ThreeHoursWeather extends Component {
         unknown: unknown,
         fog: fog,
         partlycloudy: partlycloudy,
-        cloudy: cloudy,
+        clouds: cloudy,
         drizzle: drizzle,
         clear: clear,
         mostlycloudy: mostlycloudy,
@@ -36,7 +36,7 @@ class ThreeHoursWeather extends Component {
           alt={`${this.props.desc}`}
           width={"150px"}
         />
-        <p className="temp">{Math.round(this.props.temp - 273)} &deg;C</p>
+        <p className="temp">{Math.round(this.props.temp)} &deg;C</p>
       </div>
     );
   }
