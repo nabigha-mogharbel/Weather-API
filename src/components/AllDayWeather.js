@@ -11,12 +11,10 @@ class AllDayWeather extends Component {
     console.log("3-div");
     return (
       <div className="AllDayWeather" id="all-day-weather">
-        {this.state.weatherList.map((e) => (
+        {this.props.dayW.map((e) => (
           <ThreeHoursWeather
             key={e.dt_txt}
-            time={e.dt_txt}
-            temp={e.main.temp}
-            desc={e.weather[0].id}
+            weather={e}
           />
         ))}
       </div>
