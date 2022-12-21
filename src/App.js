@@ -35,7 +35,7 @@ class App extends Component {
         <NavBar clickEvent={this.handleclick} />
         <main>
           {this.state.isFetched && <MainWeather
-            src={this.state.data.list[0].weather[0].main.toLowerCase()}
+            src={this.state.data.list[0].weather[0].id}
             desc={this.state.data.list[0].weather[0].description}
             minT={this.state.data.list[0].main.temp_min}
             maxT={this.state.data.list[0].main.temp_min}
